@@ -2,11 +2,11 @@
     "type": "mysql",
     "host": "localhost",
     "port": 3306,
-    "username": "",
-    "password": "",
+    "username": "patricia",
+    "password": "patricia_123456",
     "database": "notinhas",
     "entities": [
-        "dist/entity/**/*.js"
+        "dist/entities/**/**.js"
     ],
     "synchronize": true
 }

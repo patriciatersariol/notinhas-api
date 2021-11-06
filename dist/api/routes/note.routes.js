@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var router = (0, express_1.Router)();
+router.get('/note', function (req, res) { return res.json('Primeira rota das notas!'); });
+router.post('/note', function (req, res) { return res.json(req.body); });
+router.get('note/:id', function (req, res) { return res.json('id'); });
+router.delete('note/:id', function (req, res) { return res.json('id'); });
+router.patch('note/:id', function (req, res) { return res.json('id'); });
+exports.default = router;
