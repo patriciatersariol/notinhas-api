@@ -18,3 +18,13 @@ app.use(express_1.default.json());
 app.use(notebook_routes_1.default);
 app.use(note_routes_1.default);
 app.listen(3000, function () { return console.log('Server running on port 3000'); });
+/*
+1. Separar responsabilidades:
+    - criar um 'services' com os métodos chamados nas rotas
+        - eles devem fazer as queries do banco
+
+    - controllers devem apenas lidar com req e res -> retornando promisse
+
+2. Adicionar funções para completar o CRUD de Note e Notebooks
+
+*/ 

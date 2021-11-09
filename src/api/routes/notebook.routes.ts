@@ -1,5 +1,6 @@
 import { Request, Response, Router } from "express"
 import { getRepository } from "typeorm"
+import { createNotebook } from "../../controllers/notebook.controller"
 import { Note } from "../../entities/Note"
 import { Notebook } from "../../entities/Notebook"
 const router = Router()
@@ -9,26 +10,7 @@ router.get('/notebook', async (req, res) => {
     return res.json(notebooks)
 })
 
-router.post('/notebook', async (req, res) => {
-
-    const teste = req.body
-
-    const newNotebookReq = {
-        name: req.body.name,
-        description: req.body.description ,
-        category: req.body.category
-    }
-    
-    const notebookRepo = getRepository(Notebook)
-    const notebook = notebookRepo.create(newNotebookReq)
-
-    try {
-        const result = await notebookRepo.save(notebook)
-        return res.json(result)
-    } catch (error) {
-        return res.json(error)
-    }
-})
+router.post('/notebook', createNotebook)
 
 
 router.get('/notebook/:id/notes', async (req, res) => {
@@ -37,6 +19,8 @@ router.get('/notebook/:id/notes', async (req, res) => {
     
     try {
         const result = await notesRepo.find({ where: {notebook: notebookId}})
+        console.log('aqui')
+
         return res.json(result)
     }catch(error) {
         return res.json(error)

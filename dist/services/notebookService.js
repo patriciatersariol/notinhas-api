@@ -36,46 +36,19 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var express_1 = require("express");
+exports.save = void 0;
 var typeorm_1 = require("typeorm");
-var notebook_controller_1 = require("../../controllers/notebook.controller");
-var Note_1 = require("../../entities/Note");
-var Notebook_1 = require("../../entities/Notebook");
-var router = (0, express_1.Router)();
-router.get('/notebook', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var notebooks;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0: return [4 /*yield*/, (0, typeorm_1.getRepository)(Notebook_1.Notebook).find()];
-            case 1:
-                notebooks = _a.sent();
-                return [2 /*return*/, res.json(notebooks)];
-        }
-    });
-}); });
-router.post('/notebook', notebook_controller_1.createNotebook);
-router.get('/notebook/:id/notes', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var notebookId, notesRepo, result, error_1;
+var Notebook_1 = require("../entities/Notebook");
+var save = function (newNotebook) { return __awaiter(void 0, void 0, void 0, function () {
+    var notebookRepo, notebook;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                notebookId = req.params.id;
-                notesRepo = (0, typeorm_1.getRepository)(Note_1.Note);
-                _a.label = 1;
-            case 1:
-                _a.trys.push([1, 3, , 4]);
-                return [4 /*yield*/, notesRepo.find({ where: { notebook: notebookId } })];
-            case 2:
-                result = _a.sent();
-                console.log('aqui');
-                return [2 /*return*/, res.json(result)];
-            case 3:
-                error_1 = _a.sent();
-                return [2 /*return*/, res.json(error_1)];
-            case 4: return [2 /*return*/];
+                notebookRepo = (0, typeorm_1.getRepository)(Notebook_1.Notebook);
+                notebook = notebookRepo.create(newNotebook);
+                return [4 /*yield*/, notebookRepo.save(notebook)];
+            case 1: return [2 /*return*/, _a.sent()];
         }
     });
-}); });
-router.delete('notebook/:id', function (req, res) { return res.json('id'); });
-router.patch('notebook/:id', function (req, res) { return res.json('id'); });
-exports.default = router;
+}); };
+exports.save = save;

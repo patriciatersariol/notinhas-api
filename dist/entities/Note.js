@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Note = void 0;
 var typeorm_1 = require("typeorm");
+var Notebook_1 = require("./Notebook");
 var Note = /** @class */ (function () {
     function Note() {
     }
@@ -30,6 +31,27 @@ var Note = /** @class */ (function () {
         (0, typeorm_1.Column)(),
         __metadata("design:type", String)
     ], Note.prototype, "text", void 0);
+    __decorate([
+        (0, typeorm_1.CreateDateColumn)({
+            name: 'created_at',
+            type: 'timestamp',
+            default: function () { return 'CURRENT_TIMESTAMP(6)'; }
+        }),
+        __metadata("design:type", Date)
+    ], Note.prototype, "createdAt", void 0);
+    __decorate([
+        (0, typeorm_1.UpdateDateColumn)({
+            name: 'updated_at',
+            type: 'timestamp',
+            default: function () { return 'CURRENT_TIMESTAMP(6)'; },
+            onUpdate: 'CURRENT_TIMESTAMP(6)'
+        }),
+        __metadata("design:type", Date)
+    ], Note.prototype, "updatedAt", void 0);
+    __decorate([
+        (0, typeorm_1.ManyToOne)(function () { return Notebook_1.Notebook; }, function (notebook) { return notebook.notes; }, { eager: true }),
+        __metadata("design:type", Notebook_1.Notebook)
+    ], Note.prototype, "notebook", void 0);
     Note = __decorate([
         (0, typeorm_1.Entity)()
     ], Note);
