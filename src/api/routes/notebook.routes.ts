@@ -5,13 +5,16 @@ import { Note } from "../../entities/Note"
 import { Notebook } from "../../entities/Notebook"
 const router = Router()
 
+router.get('/health', (req, res) => {
+    return res.json('OK')
+})
+
 router.get('/notebook', async (req, res) => {
     const notebooks = await getRepository(Notebook).find()
     return res.json(notebooks)
 })
 
 router.post('/notebook', createNotebook)
-
 
 router.get('/notebook/:id/notes', async (req, res) => {
     const notebookId = req.params.id
