@@ -1,14 +1,13 @@
 import { Note } from "../entities/Note";
 
-export interface IBaseNotebook {
+export interface INotebookInput {
     name: string;
     description: string; 
     category: string;
 }
 
-export interface INotebookDB extends IBaseNotebook {
-    id: number;
+export interface INotebookDTO extends INotebookInput {
+    id?: number;
     createdAt: Date;
     updatedAt: Date;
-    notes: Array<Note>
 }
