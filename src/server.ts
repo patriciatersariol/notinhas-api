@@ -1,5 +1,4 @@
-import { createConnection } from 'typeorm'
-
+import createDbConnection from "./dbConnection"
 const app = require('./index')
-createConnection()
+createDbConnection()
 app.listen(3000, () => console.log('Server running on port 3000'))
