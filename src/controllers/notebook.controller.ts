@@ -15,8 +15,9 @@ export const createNotebook = async (request: Request, response: Response): Prom
 
     try {
         const result: INotebookDTO = await save(newNotebook)
-        return response.json(result)
+        return response.status(201).json(result)
     } catch(error) {
-        return response.json(error)
+        console.log(error)
+        return response.status(500).json(error)
     }   
 }

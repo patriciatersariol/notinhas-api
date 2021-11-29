@@ -1,12 +1,32 @@
-{
-    "type": "mysql",
-    "host": "localhost",
-    "port": 3306,
-    "username": "patricia",
-    "password": "patricia_123456",
-    "database": "notinhas",
-    "entities": [
-        "dist/entities/**/**.js"
-    ],
-    "synchronize": true
-}
+[
+    {
+        "name": "dev",
+        "type": "mysql",
+        "host": "localhost",
+        "port": 3306,
+        "username": "patricia",
+        "password": "patricia_123456",
+        "database": "notinhas",
+        "logging": true,
+        "entities": [
+            "dist/entities/**/*{.ts, .js}",
+            "src/entities/**/*{.ts, .js}"
+        ],
+        "synchronize": true
+    },
+    {
+        "name": "test",
+        "type": "mysql",
+        "host": "localhost",
+        "port": 3306,
+        "username": "patricia",
+        "password": "patricia_123456",
+        "database": "notinhas-test",
+        "dropSchema": true,
+        "entities": [
+            "dist/entities/**/*{.ts, .js}",
+            "src/entities/**/*{.ts, .js}"
+        ],
+        "synchronize": true
+    }
+]

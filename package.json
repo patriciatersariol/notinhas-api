@@ -4,11 +4,12 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "npm run compile & npx jest",
+    "test": "NODE_ENV=test npm run compile & npx jest",
+    "test-server": "NODE_ENV=test ts-node dist/server.js",
     "compile": "tsc",
     "server": "node dist/server.js",
     "watch": "tsc -w",
-    "startDev": "concurrently \"npm run watch\" \"npm run server\"",
+    "startDev": "NODE_ENV=dev concurrently \"npm run watch\" \"npm run server\"",
     "test:unit": "ENV_FILE=./config/.env.test jest"
   },
   "repository": {
