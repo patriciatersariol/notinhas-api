@@ -6,7 +6,7 @@ import { Notebook } from "../../entities/Notebook"
 const router = Router()
 
 router.get('/health', (req, res) => {
-    return res.status(203).json('OK')
+    return res.status(200).json('OK')
 })
 
 router.get('/notebook', async (req, res) => {

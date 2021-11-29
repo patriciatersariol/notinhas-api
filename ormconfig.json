@@ -6,11 +6,10 @@
         "port": 3306,
         "username": "patricia",
         "password": "patricia_123456",
-        "database": "notinhas",
         "logging": true,
+        "database": "notinhas",
         "entities": [
-            "dist/entities/**/*{.ts, .js}",
-            "src/entities/**/*{.ts, .js}"
+            "dist/entities/**/**.js"
         ],
         "synchronize": true
     },
@@ -21,8 +20,8 @@
         "port": 3306,
         "username": "patricia",
         "password": "patricia_123456",
+        "logging": false,
         "database": "notinhas-test",
-        "dropSchema": true,
         "entities": [
             "dist/entities/**/*{.ts, .js}",
             "src/entities/**/*{.ts, .js}"

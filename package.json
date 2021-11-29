@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "NODE_ENV=test npm run compile & npx jest",
-    "test-server": "NODE_ENV=test ts-node dist/server.js",
+    "test-server": "NODE_ENV=test ts-node src/server.ts",
     "compile": "tsc",
     "server": "node dist/server.js",
     "watch": "tsc -w",

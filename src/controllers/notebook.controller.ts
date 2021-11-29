@@ -18,6 +18,6 @@ export const createNotebook = async (request: Request, response: Response): Prom
         return response.status(201).json(result)
     } catch(error) {
         console.log(error)
-        return response.status(500).json(error)
+        return response.json(error)
     }   
 }
