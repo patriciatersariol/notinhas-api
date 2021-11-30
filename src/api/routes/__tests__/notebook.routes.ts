@@ -1,6 +1,6 @@
 import request from 'supertest'
 import createDbConnection from '../../../dbConnection'
-const app = require('../../../index')
+const app = require('../../../express.config')
 
 beforeAll(async () => {
     await createDbConnection()

@@ -18,7 +18,7 @@ router.post('/note', async (req, res) => {
         const result = await noteRepo.save(newNote)
         return res.json(result)
     }catch(error) {
-        return res.json(error)
+        throw new Error('Database Error')
     }
     
     

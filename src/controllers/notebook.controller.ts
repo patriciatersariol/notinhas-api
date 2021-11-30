@@ -5,7 +5,6 @@ import {save} from "../services/notebook.service"
 
 export const createNotebook = async (request: Request, response: Response): Promise<Response> => {
     const notebookData: INotebookInput = request.body
-    console.log(notebookData)
 
     const newNotebook: INotebookInput = {
         name: notebookData.name,
@@ -18,6 +17,6 @@ export const createNotebook = async (request: Request, response: Response): Prom
         return response.status(201).json(result)
     } catch(error) {
         console.log(error)
-        return response.json(error)
+        return response.status(400).json(error)
     }   
 }

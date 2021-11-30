@@ -7,11 +7,9 @@ import noteRoutes from './api/routes/note.routes'
 
 const app = express()
     
-//middlewares
 app.use(cors())
 app.use(express.json())
     
-    //routes
 app.use(notebookRoutes)
 app.use(noteRoutes)
 
